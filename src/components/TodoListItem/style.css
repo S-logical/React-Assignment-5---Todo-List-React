@@ -1,0 +1,10 @@
+.added-task{
+    padding: 5px;
+    display: flex;
+}
+.todo-items{
+    width:70%;
+}
+.buttons{
+    width:25%;
+}

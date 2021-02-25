@@ -1,12 +1,15 @@
-import React from "react";
+import React , {useState} from "react";
 import "./../styles/App.css";
+import AddTodo from "./AddTodo/AddTodo";
+import TodoContainer from "./TodoContainer/TodoContainer";
 
 function App() 
 {
+	const [todoListValues, setTodoListValues] = useState([]);
 	return (
 	<div id="main">
-	//Do not alter main div
-	//Please do not alter the functional component as tests depend on the type of component.
+		<AddTodo todoListValues={todoListValues} setTodoListValues={setTodoListValues} />
+		<TodoContainer todoListValues={todoListValues} setTodoListValues={setTodoListValues} />
 	</div>
 	);
 }

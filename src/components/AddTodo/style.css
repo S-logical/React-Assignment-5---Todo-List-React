@@ -1,0 +1,10 @@
+.add-todo{
+    
+    height: 20vh;
+    width:80%;
+    margin:20px auto;
+}
+#task{
+    width:100%;
+    height:10vh;
+}
