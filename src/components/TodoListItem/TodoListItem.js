@@ -7,6 +7,7 @@ const TodoListItem = ({
   todoListValues,
   setTodoListValues,
 }) => {
+  const [error, seterror] = useState()
   const [isEditing, setIsEditing] = useState(false);
   const [currentText, setCurrentText] = useState(listItem);
   const handleEdit = () => {
@@ -36,7 +37,8 @@ const TodoListItem = ({
   useEffect(() => {
     if (saveButton.current !== null) {
       if (currentText.replace(/\s/g, "") == "") {
-        saveButton.current.disabled = true;
+        //saveButton.current.disabled = true;
+        seterror("This field cannot be empty");
       } else {
         saveButton.current.disabled = false;
       }
@@ -59,7 +61,9 @@ const TodoListItem = ({
     );
   } else {
     return (
+      
       <div className="added-task">
+        <h4>{error}</h4>
         <div className="todo-items">{listItem}</div>
         <div className="buttons">
           <button className="edit" onClick={handleEdit}>
