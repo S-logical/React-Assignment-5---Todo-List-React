@@ -33,28 +33,35 @@ const TodoListItem = ({
       setTodoListValues(clonedArr);
       setIsEditing(false);
     }
-  };
-  useEffect(() => {
-    if (saveButton.current !== null) {
-      if (currentText.replace(/\s/g, "") == "") {
-        //saveButton.current.disabled = true;
-        seterror("This field cannot be empty");
-      } else {
-        saveButton.current.disabled = false;
-      }
+    else{
+      setIsEditing(false);
+      seterror("This field cannot be empty"); 
     }
-  }, [currentText]);
+  };
+  // useEffect(() => {
+  //   if (saveButton.current !== null) {
+  //     if (currentText.replace(/\s/g, "") == "") {
+  //       //saveButton.current.disabled = true;
+  //       seterror("This field cannot be empty");
+  //     } else {
+  //       saveButton.current.disabled = false;
+  //     }
+  //   }
+  //   else{
+  //     seterror("This field cannot be empty");
+  //   }
+  // }, [currentText]);
 
   if (isEditing) {
     return (
       <div className="added-task">
-        <textarea
+        <input
           className="editTask"
           onChange={changeText}
           defaultValue={listItem}
-        ></textarea>
+        />
         <br />
-        <button className="saveTask" onClick={handleSave} ref={saveButton}>
+        <button className="saveTask" onClick={handleSave} >
           Save
         </button>
       </div>
@@ -63,7 +70,7 @@ const TodoListItem = ({
     return (
       
       <div className="added-task">
-        <h4>{error}</h4>
+      <h4>{error}</h4>
         <div className="todo-items">{listItem}</div>
         <div className="buttons">
           <button className="edit" onClick={handleEdit}>
